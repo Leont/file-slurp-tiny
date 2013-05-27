@@ -22,6 +22,20 @@ sub read_file {
 	return $options{scalar_ref} ? $buf_ref : $buf;
 }
 
+sub read_lines {
+	my ($filename, %options) = @_;
+	my $layer = $options{binmode} || $default_layer;
+	my @buf;
+	my $buf_ref = defined $options{array_ref} ? $options{array_ref} : \@buf;
+	
+	open my $fh, "<$layer", $filename or croak "Couldn't open $filename: $!";
+	@{$buf_ref} = <$fh>;
+	chomp @{$buf_ref} if $options{chomp};
+	close $fh;
+	return if not defined wantarray or $options{array_ref};
+	return @buf;
+}
+
 sub write_file {
 	my ($filename, undef, %options) = @_;
 	my $layer = $options{binmode} || $default_layer;
