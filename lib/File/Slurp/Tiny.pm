@@ -61,3 +61,10 @@ sub read_dir {
 
 # ABSTRACT: A simple, sane and efficient file slurper
 
+=func read_file($filename, %options)
+
+=func read_lines($filename, %options)
+
+=func write_file($filename, $content, %options)
+
+=func read_dir($dirname, %options)
