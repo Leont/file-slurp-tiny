@@ -24,11 +24,12 @@ sub read_file {
 
 sub read_lines {
 	my ($filename, %options) = @_;
-	my $layer = $options{binmode} || $default_layer;
+	my $layer = delete $options{binmode} || ':';
 	my @buf;
 	my $buf_ref = defined $options{array_ref} ? $options{array_ref} : \@buf;
 	
 	open my $fh, "<$layer", $filename or croak "Couldn't open $filename: $!";
+	return <$fh> if not %options;
 	@{$buf_ref} = <$fh>;
 	chomp @{$buf_ref} if $options{chomp};
 	close $fh;
