@@ -12,11 +12,15 @@ my $default_layer = $^O eq 'MSWin32' ? ':crlf' : ':unix';
 sub read_file {
 	my ($filename, %options) = @_;
 	my $layer = $options{binmode} || $default_layer;
-	my $buf;
+	my ($pos, $buf, $read) = (0);
 	my $buf_ref = defined $options{buf_ref} ? $options{buf_ref} : \$buf;
 
 	open my $fh, "<$layer", $filename or croak "Couldn't open $filename: $!";
-	read $fh, ${$buf_ref}, -s $fh or croak "Couldn't read $filename: $!";
+	my $size = -s $fh;
+	do {
+		defined($read = read $fh, ${$buf_ref}, $size - $pos, $pos) or croak "Couldn't read $filename: $!";
+		$pos += $read;
+	} while ($read && $pos < $size);
 	close $fh;
 	return if not defined wantarray or $options{buf_ref};
 	return $options{scalar_ref} ? $buf_ref : $buf;
