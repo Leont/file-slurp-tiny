@@ -33,16 +33,13 @@ sub read_file {
 sub read_lines {
 	my ($filename, %options) = @_;
 	my $layer = delete $options{binmode} || ':';
-	my @buf;
-	my $buf_ref = defined $options{array_ref} ? $options{array_ref} : \@buf;
 	
 	open my $fh, "<$layer", $filename or croak "Couldn't open $filename: $!";
 	return <$fh> if not %options;
-	@{$buf_ref} = <$fh>;
-	chomp @{$buf_ref} if $options{chomp};
+	my @buf = <$fh>;
 	close $fh;
-	return if not defined wantarray or $options{array_ref};
-	return @buf;
+	chomp @buf if $options{chomp};
+	return $options{array_ref} ? \@buf : @buf;
 }
 
 sub write_file {

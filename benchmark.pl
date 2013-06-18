@@ -24,13 +24,13 @@ cmpthese($count, {
 print "\nSlurping into an arrayref\n";
 cmpthese($count, {
 	'Slurp'      => sub { my $lines = File::Slurp::read_file($filename, { array_ref => 1 }) },
-	'Slurp-Tiny' => sub { File::Slurp::Tiny::read_lines($filename, array_ref => \my @lines) },
+	'Slurp-Tiny' => sub { my $lines = File::Slurp::Tiny::read_lines($filename, array_ref => 1) },
 });
 
 print "\nSlurping into an arrayref, chomped\n";
 cmpthese($count, {
 	'Slurp'       => sub { my $lines = File::Slurp::read_file($filename, array_ref => 1, chomp => 1) },
-	'Slurp-Tiny'  => sub { File::Slurp::Tiny::read_lines($filename, array_ref => \my @lines, chomp => 1) },
+	'Slurp-Tiny'  => sub { my $lines = File::Slurp::Tiny::read_lines($filename, array_ref => 1, chomp => 1) },
 });
 
 print "\nSlurping into an array\n";
