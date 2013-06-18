@@ -45,9 +45,10 @@ sub read_lines {
 sub write_file {
 	my ($filename, undef, %options) = @_;
 	my $layer = $options{binmode} || $default_layer;
+	my $mode = $options{append} ? '>>' : '>';
 	my $buf_ref = defined $options{buf_ref} ? $options{buf_ref} : \$_[1];
 
-	open my $fh, ">$layer", $filename or croak "Couldn't open $filename: $!";
+	open my $fh, $mode.$layer, $filename or croak "Couldn't open $filename: $!";
 	$fh->autoflush(1);
 	print $fh ${$buf_ref} or croak "Couldn't write to $filename: $!";
 	close $fh or croak "Couldn't close $filename: $!";
