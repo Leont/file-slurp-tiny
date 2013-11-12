@@ -1,6 +1,7 @@
 Revision history for File-Slurp-Tiny
 
 {{$NEXT}}
+          Fixed embarassing mistake in SYNOPSIS [Matt Phillips]
 
 0.001     2013-11-12 16:44:35 Europe/Amsterdam
           Released to an unsuspecting world
