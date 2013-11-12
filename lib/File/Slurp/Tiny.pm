@@ -5,7 +5,7 @@ use warnings;
 use Carp 'croak';
 use Exporter 5.57 'import';
 use File::Spec::Functions 'catfile';
-our @EXPORT_OK = qw/read_file write_file read_dir/;
+our @EXPORT_OK = qw/read_file read_lines write_file read_dir/;
 
 my $default_layer = $^O eq 'MSWin32' ? ':crlf' : ':unix';
 
@@ -59,7 +59,7 @@ sub read_dir {
 	my ($dirname, %options) = @_;
 	opendir my ($dir), $dirname or croak "Could not open $dirname: $!";
 	my @ret = grep { not m/ ^ \.\.? $ /x } readdir $dir;
-	@ret = map { catfile($dir, $_) } @ret if $options{prefix};
+	@ret = map { catfile($dirname, $_) } @ret if $options{prefix};
 	closedir $dir;
 	return @ret;
 }
