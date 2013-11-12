@@ -70,7 +70,7 @@ sub read_dir {
 
 =head1 SYNOPSIS
 
- use File::Slurp 'read_file';
+ use File::Slurp::Tiny 'read_file';
  my $content = read_file($filename);
 
 =head1 DESCRIPTION
@@ -145,11 +145,11 @@ This will prepend C<$dir> to the entries
 
 =over 4
 
-=item * Path::Tiny
+=item * L<Path::Tiny>
 
 A minimalistic abstraction not only around 
 
-=item * File::Slurp
+=item * L<File::Slurp>
 
 Another file slurping tool.
 
