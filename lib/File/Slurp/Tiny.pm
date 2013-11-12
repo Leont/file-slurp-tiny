@@ -68,6 +68,15 @@ sub read_dir {
 
 # ABSTRACT: A simple, sane and efficient file slurper
 
+=head1 SYNOPSIS
+
+ use File::Slurp 'read_file';
+ my $content = read_file($filename);
+
+=head1 DESCRIPTION
+
+This module provides functions for fast and correct slurping and spewing. All functions are optionally exported.
+
 =func read_file($filename, %options)
 
 Reads file C<$filename> into a scalar. By default it returns this scalar. Can optionally take these named arguments:
@@ -132,3 +141,18 @@ This will prepend C<$dir> to the entries
 
 =back
 
+=head1 SEE ALSO
+
+=over 4
+
+=item * Path::Tiny
+
+A minimalistic abstraction not only around 
+
+=item * File::Slurp
+
+Another file slurping tool.
+
+=back
+
+=cut
