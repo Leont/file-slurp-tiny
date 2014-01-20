@@ -1,6 +1,8 @@
 Revision history for File-Slurp-Tiny
 
 {{$NEXT}}
+
+0.003     2014-01-21 00:02:40CET+0100 Europe/Amsterdam
           use FileHandle, for $fh->autoflush on older perls
           Switch over to MakeMaker
 
