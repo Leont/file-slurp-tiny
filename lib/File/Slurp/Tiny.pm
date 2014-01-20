@@ -5,6 +5,7 @@ use warnings;
 use Carp 'croak';
 use Exporter 5.57 'import';
 use File::Spec::Functions 'catfile';
+use FileHandle;
 our @EXPORT_OK = qw/read_file read_lines write_file read_dir/;
 
 my $default_layer = $^O eq 'MSWin32' ? ':crlf' : ':unix';
