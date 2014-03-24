@@ -59,7 +59,7 @@ sub write_file {
 sub read_dir {
 	my ($dirname, %options) = @_;
 	opendir my ($dir), $dirname or croak "Could not open $dirname: $!";
-	my @ret = grep { not m/ ^ \.\.? $ /x } readdir $dir;
+	my @ret = grep { not m/ \A \.\.? \z /x } readdir $dir;
 	@ret = map { catfile($dirname, $_) } @ret if $options{prefix};
 	closedir $dir;
 	return @ret;
