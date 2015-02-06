@@ -1,6 +1,7 @@
 Revision history for File-Slurp-Tiny
 
 {{$NEXT}}
+          Add discouragement notice
           Don't skip '.\n' amd '..\n' in read_dir
 
 0.003     2014-01-21 00:02:40CET+0100 Europe/Amsterdam

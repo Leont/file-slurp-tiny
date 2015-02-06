@@ -67,12 +67,18 @@ sub read_dir {
 
 1;
 
-# ABSTRACT: A simple, sane and efficient file slurper
+# ABSTRACT: A simple, sane and efficient file slurper [DISCOURAGED]
 
 =head1 SYNOPSIS
 
  use File::Slurp::Tiny 'read_file';
  my $content = read_file($filename);
+
+=head1 DISCOURAGED
+
+B<This module is discouraged in favor of L<File::Slurper|File::Slurper>>. While a useful experiment, it turned out to be both too similar to File::Slurp (still containing most problematic features of File::Slurp's interface) and yet not similar enough to be a true drop-in replacement.
+
+Bugs will still be fixed, but no new features will be added.
 
 =head1 DESCRIPTION
 
