@@ -134,6 +134,10 @@ Open C<$filename>, and write C<$content> to it. Can optionally take this named a
 
 Set the layers to write the file with. The default will be something sensible on your platform.
 
+=item * append
+
+Write content into file in append mode.
+
 =back
 
 =func read_dir($dirname, %options)
