@@ -1,6 +1,8 @@
 Revision history for File-Slurp-Tiny
 
 {{$NEXT}}
+
+0.004     2015-07-15 16:51:45+02:00 Europe/Amsterdam
           Add discouragement notice
           Don't skip '.\n' amd '..\n' in read_dir
           Don't install benchmark.pl
