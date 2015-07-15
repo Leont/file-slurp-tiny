@@ -78,7 +78,7 @@ sub read_dir {
 
 B<This module is discouraged in favor of L<File::Slurper|File::Slurper>>. While a useful experiment, it turned out to be both too similar to File::Slurp (still containing most problematic features of File::Slurp's interface) and yet not similar enough to be a true drop-in replacement.
 
-Bugs will still be fixed, but no new features will be added.
+Bugs will still be fixed, but new features will probably not be added.
 
 =head1 DESCRIPTION
 
